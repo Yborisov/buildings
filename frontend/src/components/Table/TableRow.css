@@ -1,0 +1,11 @@
+[data-label='Actions'] {
+  min-width: 100px;
+}
+
+[data-label='Actions'] > * {
+  cursor: pointer;
+}
+
+svg + svg {
+  margin-left: 30px;
+}

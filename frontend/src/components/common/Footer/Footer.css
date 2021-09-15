@@ -1,0 +1,17 @@
+footer {
+  background-color: var(--footer);
+  opacity: 0.7;
+}
+.navigation-items {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.link {
+  color: #333;
+}

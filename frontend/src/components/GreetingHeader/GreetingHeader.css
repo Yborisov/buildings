@@ -1,0 +1,12 @@
+.greeting-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  background-color: var(--heading);
+  color: #fff;
+}
+
+.fill-white {
+  fill: #fff;
+}

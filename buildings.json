@@ -1,0 +1,37 @@
+[
+    {
+        "id": "685b29c6-dde8-4eb4-87ec-c708e8e2f163",
+        "name": "Sofia Estate",
+        "area": 200,
+        "location": "Sofia",
+        "image": "/icons/685b29c6-dde8-4eb4-87ec-c708e8e2f163.png"
+    },
+    {
+        "id": "685b29c6-dde8-4eb4-87ec-casd12312f1aa",
+        "name": "Varna Estate",
+        "area": 100,
+        "location": "Varna",
+        "image": "/icons/685b29c6-dde8-4eb4-87ec-casd12312f1aa.png"
+    },
+    {
+        "id": "685b29c6-dde8-4eb4-87ec-c70aasd222fbb",
+        "name": "Plovdiv Estate",
+        "area": 150,
+        "location": "Plovdiv",
+        "image": "/icons/685b29c6-dde8-4eb4-87ec-c70aasd222fbb.png"
+    },
+    {
+        "id": "6234dr29c6-dde8-4eb4-87ec-c708e8e2f16",
+        "name": "Burgas Estate",
+        "area": 222,
+        "location": "Burgas",
+        "image": "/icons/6234dr29c6-dde8-4eb4-87ec-c708e8e2f16.png"
+    },
+    {
+        "id": "685b29c6-dde8-4eb4-87ec-c708e8e2fdsa",
+        "name": "Vratsa Estate",
+        "area": 250,
+        "location": "Vratsa",
+        "image": "/icons/685b29c6-dde8-4eb4-87ec-c708e8e2fdsa.png"
+    }
+]
