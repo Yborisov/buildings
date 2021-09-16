@@ -1,0 +1,43 @@
+.component-wrapper {
+  border: 2px solid var(--heading);
+  border-radius: 5px;
+}
+
+.form-wrapper {
+  display: grid;
+  gap: 20px;
+  padding: 10px;
+}
+
+.component-wrapper > h2 {
+  color: var(--footer);
+  text-align: center;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.error-message {
+  font-size: 10px;
+  color: red;
+  font-style: italic;
+}
+
+form > div.react-confirm-alert-button-group > button {
+  width: 100%;
+  padding: 6px;
+  margin-right: 0;
+}
+
+.file-field {
+  display: grid;
+  gap: 10px;
+}
+
+.file-field > img {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+}

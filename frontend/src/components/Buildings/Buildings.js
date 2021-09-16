@@ -1,18 +1,30 @@
-import { useEffect, useMemo, useRef } from 'react'
+import { useEffect, useMemo } from 'react'
 import { confirmAlert } from 'react-confirm-alert'
 import { connect } from 'react-redux'
-import { deleteBuilding, fetchBuildings } from '../../actions/buildingActions'
+import {
+	deleteBuilding,
+	fetchBuildings,
+	updateBuilding,
+	addBuilding,
+} from '../../actions/buildingActions'
 import { selectAllBuildings } from '../../reducers/selectors'
 import Table from '../Table/Table'
 import './Buildings.css'
 import 'react-confirm-alert/src/react-confirm-alert.css'
 import BuildingForm from '../EditForm/BuildingForm'
+import { baseApiUrl } from '../../services/api'
+import defaultImg from './assets/default.png'
 
-const Buildings = ({ fetchBuildings, buildings, deleteBuilding }) => {
-	let renders = useRef(1)
+const Buildings = ({
+	fetchBuildings,
+	buildings,
+	deleteBuilding,
+	updateBuilding,
+	addBuilding,
+}) => {
 	useEffect(() => {
 		fetchBuildings()
-	}, [])
+	}, [fetchBuildings])
 
 	const tableMetaData = useMemo(
 		() => [
@@ -31,7 +43,8 @@ const Buildings = ({ fetchBuildings, buildings, deleteBuilding }) => {
 				...building,
 				image: () => (
 					<img
-						src={building.image}
+						key={Date.now()}
+						src={`${building.image ? baseApiUrl + building.image : defaultImg}`}
 						alt={building.name}
 						height={'35px'}
 						width={'35px'}
@@ -47,6 +60,10 @@ const Buildings = ({ fetchBuildings, buildings, deleteBuilding }) => {
 
 	const editTableRow = (tableRow) => {
 		confirmAlert(editBuildingDialogOptions(tableRow))
+	}
+
+	const addTableRow = () => {
+		confirmAlert(editBuildingDialogOptions())
 	}
 
 	const deleteConfirmationOptions = (row) => ({
@@ -70,18 +87,15 @@ const Buildings = ({ fetchBuildings, buildings, deleteBuilding }) => {
 	const editBuildingDialogOptions = (row) => ({
 		title: 'Title',
 		message: 'Message',
-		buttons: [
-			{
-				label: 'Yes',
-				onClick: () => alert('Click Yes'),
-			},
-			{
-				label: 'No',
-				onClick: () => alert('Click No'),
-			},
-		],
 		childrenElement: () => <div />,
-		customUI: ({ onClose }) => <BuildingForm />,
+		customUI: ({ onClose }) => (
+			<BuildingForm
+				building={row}
+				updateBuilding={updateBuilding}
+				addBuilding={addBuilding}
+				onClose={onClose}
+			/>
+		),
 		closeOnEscape: true,
 		closeOnClickOutside: true,
 	})
@@ -95,8 +109,8 @@ const Buildings = ({ fetchBuildings, buildings, deleteBuilding }) => {
 				tableClass={'buildings-table'}
 				deleteHandler={deleteTableRow}
 				editHandler={editTableRow}
+				addHandler={addTableRow}
 			/>
-			{renders.current++}
 		</>
 	)
 }
@@ -107,5 +121,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
 	fetchBuildings,
 	deleteBuilding,
+	updateBuilding,
+	addBuilding,
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Buildings)

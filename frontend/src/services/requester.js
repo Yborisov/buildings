@@ -1,7 +1,7 @@
-const requester = async (resource, method, body) => {
+const requester = async (resource, method, body, customHeaders) => {
 	const options = {
 		method,
-		headers: {
+		headers: customHeaders ?? {
 			'Content-Type': 'application/json',
 		},
 		...(body && { body: JSON.stringify(body) }),

@@ -1,11 +1,9 @@
-import { memo, useRef } from 'react'
+import { memo } from 'react'
 import { ReactComponent as DeleteIcon } from './assets/bin.svg'
 import { ReactComponent as EditIcon } from './assets/pen.svg'
 import './TableRow.css'
 
 const TableRow = memo(({ row, deleteHandler, headingColumns, editHandler }) => {
-	console.log(`rendering row for ${row.id}`)
-	const renders = useRef(1)
 	return (
 		<tr key={row.id}>
 			{headingColumns.map((column) => (
@@ -23,7 +21,6 @@ const TableRow = memo(({ row, deleteHandler, headingColumns, editHandler }) => {
 				/>
 				<EditIcon onClick={() => editHandler(row)} width='25px' height='25px' />
 			</td>
-			<td>{renders.current++}</td>
 		</tr>
 	)
 })

@@ -6,6 +6,7 @@ const Table = ({
 	tableData,
 	deleteHandler,
 	editHandler,
+	addHandler,
 	specifiedUniqueKey,
 }) => {
 	const data = tableData.map((row) => (
@@ -30,11 +31,13 @@ const Table = ({
 							<th key={index + col.th}>{col.th}</th>
 						))}
 						<th>Actions</th>
-						<th>renders</th>
 					</tr>
 				</thead>
 				<tbody>{data}</tbody>
 			</table>
+			<div className='react-confirm-alert-button-group'>
+				<button onClick={() => addHandler()}>Add data</button>
+			</div>
 		</div>
 	)
 }
