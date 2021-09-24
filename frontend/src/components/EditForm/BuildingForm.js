@@ -94,7 +94,7 @@ const BuildingForm = ({ building, updateBuilding, addBuilding, onClose }) => {
 					/>{' '}
 				</div>
 				<div className='react-confirm-alert-button-group'>
-					<button type='submit'>Submit</button>
+					<button disabled={!(formik.isValid && formik.dirty)} type='submit'>Submit</button>
 				</div>
 			</form>
 		</div>

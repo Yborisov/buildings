@@ -5,7 +5,7 @@ import building from '../../assets/building.png'
 const Home = () => {
 	return (
 		<section className='page-wrapper'>
-			<Link to='/buildings'>
+			<Link data-testid='header' to='/buildings'>
 				<header>
 					<h1>Buildings</h1>
 				</header>
